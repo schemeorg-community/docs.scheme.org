@@ -2,9 +2,8 @@
 set -eu
 cd "$(dirname "$0")"
 mkdir -p srfi/support
-curl --location --fail --silent --show-error -o srfi/support/index.html \
+curl --location --fail --silent --show-error -o www/srfi/support/index.html \
     https://raw.githubusercontent.com/schemedoc/srfi-metadata/master/table.html
-curl --location --fail --silent --show-error -o schemeorg.css \
+curl --location --fail --silent --show-error -o www/schemeorg.css \
     https://www.staging.scheme.org/schemeorg.css
-rsync -crv index.html srfi schemeorg.css \
-    alpha.servers.scheme.org:/production/doc/www/
+rsync -crv www/ alpha.servers.scheme.org:/production/doc/www/
